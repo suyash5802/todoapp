@@ -1,0 +1,11 @@
+<%- include("partials/header") -%>
+<div class="container">
+<ul class="list-group">
+    
+    <% abc.forEach((todo)=>{ %>
+        <li class="list-group-item"><%= todo.todos %></li>
+        
+        <% } ) %>
+    </ul>
+</div>
+<%- include("partials/footer") -%>
