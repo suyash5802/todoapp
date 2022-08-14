@@ -9,8 +9,8 @@ app.use(express.static("public"))
 const mongoose=require("mongoose")
 const bodyparser=require("body-parser");
 app.use(bodyparser.urlencoded({extended:true}))
-mongoose.connect("mongodb://localhost:27017/tododb",{useNewUrlParser:true});
-
+mongoose.connect("mongodb+srv://suyash5802:rashmi28march@cluster0.phaloec.mongodb.net/?retryWrites=true&w=majority",{useNewUrlParser:true});
+const port=process.env.PORT||5000
 let todoschema=new mongoose.Schema({
     todos:String
 })
@@ -27,10 +27,9 @@ app.post("/",(req,res)=>{
     })
     postss.save();
     posts.push(postss )
-    console.log(posts)
     res.redirect("/");
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Server started  at port 3000");
 })
